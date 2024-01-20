@@ -25,7 +25,6 @@ function getBlockedAdsCount(callback) {
 function addAdsBlockedCount(adCount, callback) {
   getBlockedAdsCount(function (blockedAdsCount) {
     let count = blockedAdsCount + adCount;
-    console.log(count);
     chrome.storage.sync.set({ "blockedAdsCount": count }, callback);
   });
 }

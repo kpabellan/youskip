@@ -83,11 +83,8 @@ function getAdCount() {
     if (adModuleTextContent.length != 0) {
       collectedAdCount = true;
 
-      console.log(adModuleTextContent)
       if (adModuleTextContent.includes('Sponsored 1 of ')) {
-        console.log('Multiple ads')
         const adCount = parseInt(adModuleTextContent.split('Sponsored 1 of ').pop().split(' ')[0], 10);
-        console.log(adCount)
         chrome.runtime.sendMessage({ action: 'addAdsBlockedCount', adCount });
       } else if (adModuleTextContent.includes('Sponsored')) {
         chrome.runtime.sendMessage({ action: 'addAdsBlockedCount', adCount: 1 });

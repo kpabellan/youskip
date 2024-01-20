@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   powerButton.addEventListener("click", function () {
-    console.log("Clicked power button");
-
     chrome.storage.sync.get("adBlockerState", function (data) {
       let adBlockerState = data.adBlockerState || false;
 
