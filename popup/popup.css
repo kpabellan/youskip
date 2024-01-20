@@ -1,0 +1,95 @@
+body {
+  background-color:#263238;
+  width: 150px;
+  height: 200px;
+  overflow: hidden;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.titleContainer {
+  background-color: #546e7a;
+  padding: 10px;
+  margin: 0; 
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.powerButtonContainer {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.powerButton svg {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100px;
+  height: 80px;
+  fill: none;
+  stroke: gray;
+  stroke-width: 10px;
+}
+
+.powerButton svg:hover {
+  fill: none;
+  stroke: #FFFFFF;
+  stroke-width: 10px;
+}
+
+.powerButton.on svg {
+  fill: #FFFFFF;
+  stroke: none;
+  stroke-width: 0px;
+}
+
+.powerButton.on svg:hover {
+  fill: #CCCCCC;
+}
+
+.statsContainer {
+  text-align: center;
+}
+
+.statsTitle {
+  background-color: #546e7a;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.stats {
+  color: #FFFFFF;
+}
+
+.statsItem {
+  text-align: center;
+}
+
+.adsBlockedTitle {
+  margin-bottom: -10px;
+}
+
+.clearBtn {
+  padding-bottom: 5px;
+  color: #FFFFFF;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.clearBtn:hover {
+  color: #CCCCCC;
+}
+
+.clearBtn:active {
+  color: #999999;
+}
