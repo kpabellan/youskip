@@ -4,10 +4,7 @@
   "version": "1.0",
   "description": "Shields you from YouTube ads automatically.",
   "permissions": [
-    "storage",
-    "activeTab",
-    "webNavigation",
-    "scripting"
+    "storage"
   ],
   "icons": {
     "48": "icon.png"
