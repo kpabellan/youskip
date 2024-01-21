@@ -98,12 +98,13 @@ function handleDOMChanges(mutationsList) {
   if (Array.isArray(mutationsList)) {
     for (const mutation of mutationsList) {
       if (mutation.type === 'childList') {
-        chrome.runtime.sendMessage({ action: 'getAdBlockerState' }, function (response) {
-          const adBlockerState = response.adBlockerState || false;
-          if (adBlockerState) {
-            checkForAds();
-          }
-        });
+        if (isVideoPage()) {
+          chrome.storage.sync.get('adBlockerState', function(data) {
+            if (data.adBlockerState) {
+              checkForAds();
+            }
+          });
+        }
       }
     }
   }
@@ -126,10 +127,3 @@ const config = { childList: true, subtree: true };
 
 // Start observing the target node for changes
 observer.observe(targetNode, config);
-
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  if (request.adBlockerState !== undefined) {
-    adBlockerState = request.adBlockerState;
-    chrome.runtime.sendMessage({ action: 'setAdBlockerState', adBlockerState });
-  }
-});

@@ -1,12 +1,21 @@
 // Default adBlockerState
-let adBlockerState = false;
+let adBlockerState = true;
 
 // Retrieve adBlockerState from storage on extension startup
 chrome.storage.sync.get("adBlockerState", function (data) {
   if (data.adBlockerState !== undefined) {
     adBlockerState = data.adBlockerState;
+  } else {
+    chrome.storage.sync.set({ "adBlockerState": adBlockerState });
   }
 });
+
+// Function to get adBlockerState from storage
+function getAdBlockerState(callback) {
+  chrome.storage.sync.get("adBlockerState", function (data) {
+    callback(data.adBlockerState);
+  });
+}
 
 // Function to set adBlockerState in storage
 function setAdBlockerState(newState, callback) {
@@ -36,7 +45,9 @@ function clearBlockedAdsCount(callback) {
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.action === 'getAdBlockerState') {
-    sendResponse({ adBlockerState });
+    getAdBlockerState(function (state) {
+      sendResponse({ adBlockerState: state });
+    });
   } else if (request.action === 'setAdBlockerState') {
     setAdBlockerState(request.adBlockerState, function() {
       sendResponse({});

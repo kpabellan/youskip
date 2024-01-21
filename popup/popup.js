@@ -3,21 +3,19 @@ document.addEventListener("DOMContentLoaded", function () {
   let clearStatsButton = document.querySelector("#clearStats");
 
   chrome.storage.sync.get("adBlockerState", function (data) {
-    let adBlockerState = data.adBlockerState || false;
+    let adBlockerState = data.adBlockerState;
     updateButtonState(adBlockerState);
   });
 
   powerButton.addEventListener("click", function () {
     chrome.storage.sync.get("adBlockerState", function (data) {
-      let adBlockerState = data.adBlockerState || false;
+      let adBlockerState = data.adBlockerState;
 
       adBlockerState = !adBlockerState;
 
-      chrome.storage.sync.set({ "adBlockerState": adBlockerState }, function () {
-        updateButtonState(adBlockerState);
-
-        chrome.runtime.sendMessage({ action: 'setAdBlockerState', adBlockerState });
-      });
+      chrome.runtime.sendMessage({ action: 'setAdBlockerState', adBlockerState });
+    
+      updateButtonState(adBlockerState);
     });
   });
 
