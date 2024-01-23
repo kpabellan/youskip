@@ -13,11 +13,7 @@ Transform your YouTube experience with YouSkip YouTube Ad Shield—a powerful ad
 
 ### Google Chrome
 
-1. Download the extension files.
-2. Unzip the downloaded files to a location on your computer.
-3. Open Google Chrome and go to `chrome://extensions/`.
-4. Enable "Developer mode" using the toggle switch in the upper-right corner.
-5. Click on "Load unpacked" and select the folder where you unzipped the extension files.
+1. Download and install YouSkip YouTube Ad Shield from the [Google Web Store](https://chromewebstore.google.com/detail/youskip-youtube-ad-shield/lmceijpbdidhmaennpaiadjlkgedmllb).
 
 YouSkip YouTube Ad Shield is now installed on your Google Chrome browser.
 
